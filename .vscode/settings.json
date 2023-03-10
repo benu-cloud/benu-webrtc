@@ -1,0 +1,32 @@
+{
+    "terminal.integrated.defaultProfile.windows": "MSYS2",
+    "terminal.integrated.profiles.windows": {
+        "MSYS2": {
+            "path": "C:\\msys64\\usr\\bin\\bash.exe",
+            "args": [
+                "--login",
+                "-i"
+            ],
+            "env": {
+                "MSYSTEM": "MINGW64",
+                "CHERE_INVOKING": "1"
+            }
+        }
+    },
+    "go.goroot": "C:\\msys64\\mingw64\\lib\\go",
+    "go.testEnvVars": {
+        "CGO_ENABLED": 1,
+        "PATH": "C:\\msys64\\mingw64\\bin"
+    },
+    "go.toolsEnvVars": {
+        "CGO_ENABLED": 1,
+        "PATH": "C:\\msys64\\mingw64\\bin"
+    },
+    "gopls": {
+        "formatting.gofumpt": true,
+        "build.buildFlags": ["-tags=windows"]
+    },
+    "files.associations": {
+        "keyboard.h": "c"
+    },
+}
