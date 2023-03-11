@@ -27,10 +27,6 @@ SRC_FILES=$(shell find $(SRC_DIR) -name '*.c')
 # Convert .c files to corresponding .o files in the same directory
 OBJ_FILES=$(patsubst %.c,%.o,$(SRC_FILES))
 
-# Convert .o files to corresponding .a library files in the same directory
-lib_files_temp=$(patsubst %.o,lib%.a,$(notdir $(OBJ_FILES)))
-LIB_FILES=$(join $(dir $(SRC_FILES)), $(lib_files_temp))
-
 .PHONY: help clean clean-all fmt vet update-dependencies test test-bench test-cover test-all build build-debug build-release build-obj build-obj-debug build-obj-release
 
 default: help
@@ -40,11 +36,16 @@ help:
 	@echo 'usage: make [target] ...'
 	@echo 'TODO: add more documentation here'
 
+# Show some variables for debugging
+env:
+	@echo $(SRC_FILES)
+	@echo $(OBJ_FILES)
+
 # Run Go clean and remove C library and object files, also remove binary files
 clean:
 	go clean
 	rm -f $(OBJ_FILES)
-	rm -f $(LIB_FILES)
+	rm -f $(shell find $(SRC_DIR) -name 'lib*.a')
 	rm -fr bin/*
 
 # More go clean parameters
@@ -55,7 +56,7 @@ clean-all: clean
 # Format Go and C files
 fmt:
 	go fmt ./...
-	find . -name '*.c' -o -name '*.h' | xargs clang-format -i
+	find . -name '*.c' -o -name '*.h' | xargs clang-format -style=Google -i
 
 # Run go vet on source files
 vet:
@@ -66,15 +67,15 @@ update-dependencies:
 	go mod tidy
 
 # Run short tests
-test:
+test: build-obj
 	go test -v ./... -short
 
 # Run benchmark tests
-test-bench:
+test-bench: build-obj
 	go test -bench ./...
 
 # Generate test coverage and generate html report
-test-cover:
+test-cover: build-obj
 	rm -fr coverage
 	mkdir coverage
 	go list -f '{{if gt (len .TestGoFiles) 0}}"go test -covermode count -coverprofile {{.Name}}.coverprofile -coverpkg ./... {{.ImportPath}}"{{end}}' ./... | xargs -I {} bash -c {}
@@ -100,18 +101,16 @@ build-release: clean build-obj-release
 	go build $(GOFLAGS) -o $(BINARY_DIR) ./...
 
 # Build C object and library files
-build-obj: $(OBJ_FILES) $(LIB_FILES)
+build-obj: $(OBJ_FILES)
 
 # Build C object and library files with debug flags
 build-obj-debug: CFLAGS += -g -DDEBUG
-build-obj-debug: $(OBJ_FILES) $(LIB_FILES)
+build-obj-debug: $(OBJ_FILES)
 
 # Build C object and library files with release flags
 build-obj-release: CFLAGS += -DNDEBUG -O3
-build-obj-release: $(OBJ_FILES) $(LIB_FILES)
+build-obj-release: $(OBJ_FILES)
 
-$(OBJ_FILES): $(SRC_FILES)
-	$(CC) $(CFLAGS) -c $< -o $@
-
-$(LIB_FILES): $(OBJ_FILES)
-	ar rcs $@ $<
+%.o: %.c
+	$(CC) $(CFLAGS) -c $^ -o $@
+	ar rcs $(join $(dir $@), $(join lib, $(patsubst %.o,%.a,$(notdir $@)))) $@
