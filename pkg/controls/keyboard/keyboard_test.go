@@ -35,8 +35,8 @@ func TestSendKeyChar(t *testing.T) {
 
 func TestSendKeySpecialKey(t *testing.T) {
 	sendKeySpecialKeyTests := []sendKeySpecialKeyTest{
-		{KEYBOARD_ESCAPE, true, nil},
-		{KEYBOARD_CAPSLOCK, false, nil},
+		{types.ESCAPE, true, nil},
+		{types.CAPSLOCK, false, nil},
 		{types.SpecialKeyboardKey("this_is_not_a_key"), true, &pkgerrors.NotImplementedError{Where: "SendInputKeySpecialKey", Feature: "this_is_not_a_key"}},
 	}
 	var keyboard_impl Keyboard = &keyboard.Keyboard_c{}
