@@ -54,7 +54,7 @@ func (e *VideoEncoder) Set(s string) error {
 }
 
 func (p *PortNumber) String() string {
-	return fmt.Sprintf("%d", p)
+	return fmt.Sprintf("%d", uint(*p))
 }
 
 func (p *PortNumber) Set(s string) error {
