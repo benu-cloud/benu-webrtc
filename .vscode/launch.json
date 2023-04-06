@@ -8,7 +8,7 @@
             "environment": [],
             "externalConsole": true,
             "MIMode": "gdb",
-            "program": "${workspaceRoot}/bin/benu.exe",
+            "program": "${workspaceRoot}/bin/cmd.exe",
             "args": [
                 "--logtostderr", "1",
             ],

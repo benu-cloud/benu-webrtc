@@ -27,6 +27,16 @@
         "build.buildFlags": ["-tags=windows"]
     },
     "files.associations": {
-        "keyboard.h": "c"
+        "keyboard.h": "c",
+        "stream.h": "c",
+        "bitset": "c",
+        "functional": "c",
+        "random": "c",
+        "istream": "c",
+        "mutex": "c",
+        "ostream": "c",
+        "sstream": "c",
+        "stop_token": "c",
+        "streambuf": "c"
     },
 }
