@@ -112,5 +112,5 @@ build-obj-release: CFLAGS += -DNDEBUG -O3
 build-obj-release: $(OBJ_FILES)
 
 %.o: %.c
-	$(CC) $(CFLAGS) -c $^ -o $@
+	$(CC) $(CFLAGS) $(shell pkg-config --silence-errors --cflags --libs $$(sed -n '1s/^\/\*\(.*\)\*\/$$/\1/p' $^) 2>/dev/null) -c $^ -o $@
 	ar rcs $(join $(dir $@), $(join lib, $(patsubst %.o,%.a,$(notdir $@)))) $@
