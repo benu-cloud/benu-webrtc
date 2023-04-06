@@ -1,14 +1,16 @@
 package config
 
+import "time"
+
 // video encoder
-type VideoEncoder string
+type VideoEncoder int
 
 // Supported video encoders
 // ! Must be compatible with encoders defined in C code
 const (
-	VP9    VideoEncoder = "VP9"
-	H264   VideoEncoder = "H264"
-	NVH264 VideoEncoder = "NVH264"
+	VP9    VideoEncoder = 0
+	H264   VideoEncoder = 1
+	NVH264 VideoEncoder = 2
 )
 
 // Resolution
@@ -34,9 +36,10 @@ type StreamSettings struct {
 
 // message broker settings
 type MessageBrokerSettings struct {
-	Host     string
-	Port     PortNumber
-	VHost    string
-	Username string
-	Password string
+	Host           string
+	Port           PortNumber
+	VHost          string
+	Username       string
+	Password       string
+	PublishTimeout time.Duration
 }

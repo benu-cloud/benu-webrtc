@@ -36,7 +36,15 @@ badFormat:
 }
 
 func (e *VideoEncoder) String() string {
-	return string(*e)
+	switch *e {
+	case VP9:
+		return "VP9"
+	case H264:
+		return "H264"
+	case NVH264:
+		return "NVH264"
+	}
+	return ""
 }
 
 func (e *VideoEncoder) Set(s string) error {
