@@ -3,7 +3,7 @@ package message
 import (
 	"encoding/json"
 
-	"github.com/benu-cloud/benu-livestreaming-gst/pkg/pkgerrors"
+	"github.com/benu-cloud/benu-webrtc/pkg/pkgerrors"
 )
 
 func Unmarshal(bytes []byte) (GenericPayload, error) {

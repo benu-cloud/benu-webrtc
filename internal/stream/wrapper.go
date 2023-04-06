@@ -13,9 +13,9 @@ import (
 	"fmt"
 	"sync"
 
-	"github.com/benu-cloud/benu-livestreaming-gst/internal/config"
-	"github.com/benu-cloud/benu-livestreaming-gst/internal/message"
-	"github.com/benu-cloud/benu-livestreaming-gst/pkg/pkgerrors"
+	"github.com/benu-cloud/benu-webrtc/internal/config"
+	"github.com/benu-cloud/benu-webrtc/internal/message"
+	"github.com/benu-cloud/benu-webrtc/pkg/pkgerrors"
 )
 
 type peer struct {

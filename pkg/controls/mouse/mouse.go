@@ -1,6 +1,6 @@
 package mouse
 
-import "github.com/benu-cloud/benu-livestreaming-gst/pkg/controls/types"
+import "github.com/benu-cloud/benu-webrtc/pkg/controls/types"
 
 type Mouse interface {
 	SendInputMove(dx int, dy int) error

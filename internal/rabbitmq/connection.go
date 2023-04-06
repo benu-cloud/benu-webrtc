@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/benu-cloud/benu-livestreaming-gst/internal/config"
+	"github.com/benu-cloud/benu-webrtc/internal/config"
 	amqp "github.com/rabbitmq/amqp091-go"
 )
 

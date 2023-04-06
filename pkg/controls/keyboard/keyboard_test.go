@@ -3,9 +3,9 @@ package keyboard
 import (
 	"testing"
 
-	"github.com/benu-cloud/benu-livestreaming-gst/internal/controls/keyboard"
-	"github.com/benu-cloud/benu-livestreaming-gst/pkg/controls/types"
-	"github.com/benu-cloud/benu-livestreaming-gst/pkg/pkgerrors"
+	"github.com/benu-cloud/benu-webrtc/internal/controls/keyboard"
+	"github.com/benu-cloud/benu-webrtc/pkg/controls/types"
+	"github.com/benu-cloud/benu-webrtc/pkg/pkgerrors"
 	"github.com/stretchr/testify/assert"
 )
 

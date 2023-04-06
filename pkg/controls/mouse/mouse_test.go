@@ -3,8 +3,8 @@ package mouse
 import (
 	"testing"
 
-	"github.com/benu-cloud/benu-livestreaming-gst/internal/controls/mouse"
-	"github.com/benu-cloud/benu-livestreaming-gst/pkg/controls/types"
+	"github.com/benu-cloud/benu-webrtc/internal/controls/mouse"
+	"github.com/benu-cloud/benu-webrtc/pkg/controls/types"
 	"github.com/stretchr/testify/assert"
 )
 

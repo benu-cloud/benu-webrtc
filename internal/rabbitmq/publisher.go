@@ -3,8 +3,8 @@ package rabbitmq
 import (
 	"context"
 
-	"github.com/benu-cloud/benu-livestreaming-gst/internal/message"
-	"github.com/benu-cloud/benu-livestreaming-gst/pkg/pkgerrors"
+	"github.com/benu-cloud/benu-webrtc/internal/message"
+	"github.com/benu-cloud/benu-webrtc/pkg/pkgerrors"
 	amqp "github.com/rabbitmq/amqp091-go"
 )
 
