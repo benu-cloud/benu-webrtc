@@ -1,7 +1,11 @@
 package config
 
-// video encoder
-type VideoEncoder int
+type (
+	// video encoder
+	VideoEncoder int
+	// port number
+	PortNumber uint
+)
 
 // Supported video encoders
 // ! Must be compatible with encoders defined in C code

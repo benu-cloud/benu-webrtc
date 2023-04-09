@@ -3,6 +3,7 @@ package config
 import (
 	"fmt"
 	"os"
+	"time"
 
 	"github.com/benu-cloud/benu-message/rabbitmq"
 	"github.com/joho/godotenv"
@@ -21,6 +22,13 @@ func ParseArgs() (s StreamSettings, m rabbitmq.MessageBrokerSettings) {
 	var audioBaseBitrate uint
 	var audioBasePacketLossPct uint
 
+	var rmqhost string
+	var rmqport PortNumber = PortNumber(5672)
+	var rmqvHost string
+	var rmqusername string
+	var rmqpassword string
+	var rmqpublishTimeoutSeconds uint
+
 	flag.Var(&videoResolution, "vresolution", "The resolution to use (required). Should be in the format [WIDTH]x[HEIGHT].")
 	flag.Var(&videoEncoder, "vencoder", "The video encoder to use.")
 	flag.UintVar(&videoBaseFramerate, "vframerate", 60, "Video base framerate.")
@@ -28,6 +36,13 @@ func ParseArgs() (s StreamSettings, m rabbitmq.MessageBrokerSettings) {
 	flag.BoolVar(&videoShowCursor, "vcursor", true, "Whether to show cursor in recorded screen.")
 	flag.UintVar(&audioBaseBitrate, "abitrate", 64000, "Audio base bitrate in bps.")
 	flag.UintVar(&audioBasePacketLossPct, "apacketlosspct", 5, "Audio base packet loss percentage. Should be in range 0-100.")
+
+	flag.StringVar(&rmqhost, "rmqhost", "localhost", "RabbitMQ message broker host.")
+	flag.Var(&rmqport, "rmqport", "RabbitMQ message broker port. Should be in the range 0-65535.")
+	flag.StringVar(&rmqvHost, "rmqvhost", "", "RabbitMQ virtual host.")
+	flag.StringVar(&rmqusername, "rmqusername", "", "RabbitMQ username (required).")
+	flag.StringVar(&rmqpassword, "rmqpassword", "", "RabbitMQ password (required).")
+	flag.UintVar(&rmqpublishTimeoutSeconds, "rmqtimeout", 5, "RabbitMQ publish timeout in seconds")
 
 	flag.Parse()
 
@@ -42,6 +57,16 @@ func ParseArgs() (s StreamSettings, m rabbitmq.MessageBrokerSettings) {
 		flag.Usage()
 		os.Exit(1)
 	}
+	if rmqusername == "" {
+		fmt.Println("Error: the flag -rmqusername is required.")
+		flag.Usage()
+		os.Exit(1)
+	}
+	if rmqpassword == "" {
+		fmt.Println("Error: the flag -rmqpassword is required.")
+		flag.Usage()
+		os.Exit(1)
+	}
 
 	s.AudioBaseBitrate = audioBaseBitrate
 	s.AudioBasePacketLossPct = audioBasePacketLossPct
@@ -51,6 +76,13 @@ func ParseArgs() (s StreamSettings, m rabbitmq.MessageBrokerSettings) {
 	s.VideoResolution = videoResolution
 	s.VideoShowCursor = videoShowCursor
 	s.VideoResolution = videoResolution
+
+	m.Host = rmqhost
+	m.Password = rmqpassword
+	m.Port = uint(rmqport)
+	m.Username = rmqusername
+	m.VHost = rmqvHost
+	m.PublishTimeout = time.Second * time.Duration(rmqpublishTimeoutSeconds)
 
 	return
 }
