@@ -11,8 +11,8 @@ import "C"
 import (
 	"fmt"
 
+	pkgerrors "github.com/benu-cloud/benu-errors"
 	"github.com/benu-cloud/benu-webrtc/pkg/message"
-	"github.com/benu-cloud/benu-webrtc/pkg/pkgerrors"
 )
 
 //export got_gstreamer_pipeline_error_cb

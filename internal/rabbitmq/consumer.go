@@ -1,7 +1,7 @@
 package rabbitmq
 
 import (
-	"github.com/benu-cloud/benu-webrtc/pkg/pkgerrors"
+	pkgerrors "github.com/benu-cloud/benu-errors"
 	amqp "github.com/rabbitmq/amqp091-go"
 )
 

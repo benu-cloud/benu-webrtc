@@ -10,8 +10,8 @@ import "C"
 import (
 	"fmt"
 
+	pkgerrors "github.com/benu-cloud/benu-errors"
 	"github.com/benu-cloud/benu-webrtc/pkg/controls/types"
-	"github.com/benu-cloud/benu-webrtc/pkg/pkgerrors"
 )
 
 var mouseKey map[types.MouseKey]C.int = map[types.MouseKey]C.int{

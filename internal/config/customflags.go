@@ -5,7 +5,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/benu-cloud/benu-webrtc/pkg/pkgerrors"
+	pkgerrors "github.com/benu-cloud/benu-errors"
 )
 
 func (r *Resolution) String() string {

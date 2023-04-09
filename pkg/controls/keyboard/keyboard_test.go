@@ -3,9 +3,9 @@ package keyboard
 import (
 	"testing"
 
+	pkgerrors "github.com/benu-cloud/benu-errors"
 	"github.com/benu-cloud/benu-webrtc/internal/controls/keyboard"
 	"github.com/benu-cloud/benu-webrtc/pkg/controls/types"
-	"github.com/benu-cloud/benu-webrtc/pkg/pkgerrors"
 	"github.com/stretchr/testify/assert"
 )
 

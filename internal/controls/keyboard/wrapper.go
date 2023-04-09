@@ -8,8 +8,8 @@ package keyboard
 import "C"
 
 import (
+	pkgerrors "github.com/benu-cloud/benu-errors"
 	"github.com/benu-cloud/benu-webrtc/pkg/controls/types"
-	"github.com/benu-cloud/benu-webrtc/pkg/pkgerrors"
 )
 
 var specialKeyboardKey map[types.SpecialKeyboardKey]C.int = map[types.SpecialKeyboardKey]C.int{
