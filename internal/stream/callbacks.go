@@ -11,7 +11,7 @@ import "C"
 import (
 	"fmt"
 
-	"github.com/benu-cloud/benu-webrtc/internal/message"
+	"github.com/benu-cloud/benu-webrtc/pkg/message"
 	"github.com/benu-cloud/benu-webrtc/pkg/pkgerrors"
 )
 

@@ -32,7 +32,7 @@ type SessionDescriptionPayload struct {
 }
 
 type IceCandidatePayload struct {
-	From         string
+	From         string          `json:"from"`
 	Target       PayloadTarget   `json:"target"`
 	IceCandidate json.RawMessage `json:"content"`
 }

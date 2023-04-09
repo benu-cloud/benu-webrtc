@@ -3,7 +3,7 @@ package rabbitmq
 import (
 	"context"
 
-	"github.com/benu-cloud/benu-webrtc/internal/message"
+	"github.com/benu-cloud/benu-webrtc/pkg/message"
 	"github.com/benu-cloud/benu-webrtc/pkg/pkgerrors"
 	amqp "github.com/rabbitmq/amqp091-go"
 )
