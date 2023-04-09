@@ -5,5 +5,4 @@
 int sendInputMove(const int dx, const int dy);
 int sendInputKey(const int key);
 int sendInputScroll(const int scrollDir, const int size);
-int f;
 #endif
