@@ -1,7 +1,5 @@
 package config
 
-import "time"
-
 // video encoder
 type VideoEncoder int
 
@@ -19,8 +17,6 @@ type Resolution struct {
 	Width  int
 }
 
-type PortNumber uint
-
 // stream settings
 type StreamSettings struct {
 	// video
@@ -32,14 +28,4 @@ type StreamSettings struct {
 	// audio
 	AudioBaseBitrate       uint
 	AudioBasePacketLossPct uint
-}
-
-// message broker settings
-type MessageBrokerSettings struct {
-	Host           string
-	Port           PortNumber
-	VHost          string
-	Username       string
-	Password       string
-	PublishTimeout time.Duration
 }

@@ -1,5 +1,7 @@
 github.com/benu-cloud/benu-errors v0.0.0-20230409132418-7793765bb34e h1:y5OnbMLf5VZb1XLkheYK118aCgU9gErK9enmO/kaYtk=
 github.com/benu-cloud/benu-errors v0.0.0-20230409132418-7793765bb34e/go.mod h1:6vfv+Vn94zC54H1wTKYj7dO7GavkjlQA/wZQcmf5NXg=
+github.com/benu-cloud/benu-message v0.0.0-20230409144420-1c725c331bb2 h1:8njJSr700DTER4kaY7BvfHlH8ZSB4LixcaETAgmmgVE=
+github.com/benu-cloud/benu-message v0.0.0-20230409144420-1c725c331bb2/go.mod h1:W2z4d4gq9ZP0GjtnTS7PD6DAkTf1A5jlY+uLmOpc0ZU=
 github.com/davecgh/go-spew v1.1.0/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
 github.com/davecgh/go-spew v1.1.1 h1:vj9j/u1bqnvCEfJOwUhtlOARqs3+rkHYY13jYWTU97c=
 github.com/davecgh/go-spew v1.1.1/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=

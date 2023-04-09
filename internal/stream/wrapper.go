@@ -14,8 +14,8 @@ import (
 	"sync"
 
 	pkgerrors "github.com/benu-cloud/benu-errors"
+	"github.com/benu-cloud/benu-message/message"
 	"github.com/benu-cloud/benu-webrtc/internal/config"
-	"github.com/benu-cloud/benu-webrtc/pkg/message"
 )
 
 type peer struct {
